@@ -135,11 +135,11 @@ router.put("/:id/follow", async (req, res) => {
                                         
 
                     } catch (err) {
-                              return res.status(500).json(err)
+                            return res.status(500).json(err)
                     }
-          }else {
+        }else {
                     res.status(403).json("you can't follow yourself")
-          }
+        }
 })
 
 // unfollow a user
