@@ -37,5 +37,22 @@ Remove d quote ard d db url in .env file
 Soln:
 ds is bcos u r trying to send d same req twice
 
+Cannot read property 'password' of null
+Ans: Enter d correct input
+ds:
+{ 
+    "email": "hey@gmail.com",
+    "password": "123456"
+}
+
+instead of username and password
+
+Cannot read property 'isAdmin' of undefined
+Ans:
+instead of:
+if(req.body.userId === req.params.id || req.user.isAdmin) {}
+
+use:
+if(req.body.userId === req.params.id || req.body.isAdmin) {}
 
 

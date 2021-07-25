@@ -4,6 +4,14 @@ const User = require('../models/User')
 const bcrypt = require("bcrypt")
 
 // register
+/*
+http://localhost:8800/api/auth/register
+{
+          "username": "hey",
+          "email": "hey@gmail.com",
+          "password": "123456"
+}
+*/ 
 router.post('/register', async (req, res) => {
           // const user = await new User (
           //           {
@@ -16,7 +24,6 @@ router.post('/register', async (req, res) => {
           // await user.save()
           // res.send("ok")
 
-        
 
           try{
                     // 2: generate new password
@@ -44,6 +51,13 @@ router.post('/register', async (req, res) => {
 })
 
 // login 
+/*
+http://localhost:8800/api/auth/login
+{ 
+          "email": "hey@gmail.com",
+          "password": "123456"
+}
+*/ 
 router.post("/login", async (req, res) => {
           try{
                     const user = await User.findOne({ email: req.body.email })
