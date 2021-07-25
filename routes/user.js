@@ -143,6 +143,12 @@ router.put("/:id/follow", async (req, res) => {
 })
 
 // unfollow a user
+/*
+http://localhost:8800/api/users/60fda89a9b52a432b3d42104/unfollow
+{
+          "userId": "60fdac0ecad84234343d9c72"
+}
+*/ 
 router.put("/:id/unfollow", async (req, res) => {
           if(req.body.userId !== req.params.id) {
                     try {
@@ -150,10 +156,10 @@ router.put("/:id/unfollow", async (req, res) => {
 
                               const currentUser = await User.findById(req.body.userId)
 
-                              if(!user.followers.includes(req.body.userId)) {
+                              if(user.followers.includes(req.body.userId)) {
                                         await user.updateOne(
                                                   {
-                                                            $push: {
+                                                            $pull: {
                                                                       followers: req.body.userId
                                                             }
                                                   }
@@ -161,16 +167,16 @@ router.put("/:id/unfollow", async (req, res) => {
 
                                         await currentUser.updateOne(
                                                   {
-                                                            $push: {
+                                                            $pull: {
                                                                       followings: req.params.id
                                                             }
                                                   }
                                         )
 
-                                        return res.status(200).json("user has been followed")
+                                        return res.status(200).json("user has been unfollowed")
 
                               }else {
-                                        return res.status(403).json("you already follow this user")
+                                        return res.status(403).json("you already unfollow this user")
                               }
                                         
 
@@ -178,7 +184,7 @@ router.put("/:id/unfollow", async (req, res) => {
                               return res.status(500).json(err)
                     }
           }else {
-                    res.status(403).json("you can't follow yourself")
+                    res.status(403).json("you can't unfollow yourself")
           }
 })
 
