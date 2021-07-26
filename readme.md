@@ -1,3 +1,4 @@
+impt info on express: https://expressjs.com/en/guide/routing.html
 
 Notes:
 npm add express mongoose dotenv helmet 
