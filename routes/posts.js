@@ -2,6 +2,16 @@ const router = require("express").Router()
 const Post = require("../models/Post")
 const User = require("../models/User")
 
+
+/* ths done in post.js
+Create: put
+Read: get
+U: update
+D: del
+
+*/
+
+
 // cr8 a post
 /*
 http://localhost:8800/api/posts
@@ -9,11 +19,14 @@ http://localhost:8800/api/posts
           "userId": "60fda89a9b52a432b3d42104",
           "desc": "Hey my first post"
 }
+
 */ 
 router.post('/', async (req, res) => {
-          const newPost = new Post(req.body)
+          // newPost can be either way here
+          const newPost = await new Post(req.body)
 
           try {
+                    // const newPost = await new Post(req.body)
                     const savedPost = await newPost.save()
 
                     res.status(200).json(savedPost)
@@ -24,6 +37,7 @@ router.post('/', async (req, res) => {
 
 // get all post: personal effort
 // http://localhost:8800/api/posts/
+
 router.get('/', async (req, res) => {
 
           Post.find({ }, (err, posts) => {
@@ -76,6 +90,7 @@ http://localhost:8800/api/posts/60fdc2e4a4386a3d945cfaff
           "userId": "60fda89a9b52a432b3d42104",
           "desc": "Hey my first post has just been updated"
 }
+
 */ 
 router.delete('/:id', async (req, res) => {
           try {
@@ -101,11 +116,13 @@ http://localhost:8800/api/posts/60fdc303a4386a3d945cfb01/like
 {
           "userId": "60fda89a9b52a432b3d42104"
 }
+
 */ 
 router.put('/:id/like', async (req, res) => {
           try {
                     const post = await Post.findById(req.params.id)
 
+                    // like
                     if(!post.likes.includes(req.body.userId)) {
                               await post.updateOne(
                                         {
@@ -117,6 +134,7 @@ router.put('/:id/like', async (req, res) => {
 
                               res.status(200).json("The post has been liked")
                     }else {
+                              // unlike / dislike
                               await post.updateOne(
                                         {
                                                   $pull: {
@@ -136,6 +154,7 @@ router.put('/:id/like', async (req, res) => {
 /*
 http://localhost:8800/api/posts/60fdc303a4386a3d945cfb01/
 d id here is d _id: ObjectId("60fdc2e4a4386a3d945cfaff") 
+
 */
 router.get('/:id', async (req, res) => {
           try {
@@ -200,18 +219,24 @@ returns:
                     "desc": "Hey my first post",
           }
 ]
+
+what does d get (a timeline: post cr8ed only by ds user & 
+its followers) method of post route entails?
+
 */ 
 router.get("/timeline/all", async (req, res) => {
 
           try {
                     const currentUser = await User.findById(req.body.userId)
 
+                    // owner of d accout: person being followed
                     const userPosts = await Post.find(
                               {
                                         userId: currentUser._id
                               }
                     )
 
+                    // posts of d pple d owner ffl
                     const friendPosts = await Promise.all(
                               currentUser.followings.map(friendId => {
                                         return Post.find(

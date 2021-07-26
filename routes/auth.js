@@ -3,6 +3,11 @@ const router = require("express").Router()
 const User = require('../models/User')
 const bcrypt = require("bcrypt")
 
+
+/*
+ths done in auth.js
+post(create): register(sign up) and login(sign in)
+*/ 
 // register
 /*
 http://localhost:8800/api/auth/register
@@ -11,6 +16,7 @@ http://localhost:8800/api/auth/register
           "email": "hey@gmail.com",
           "password": "123456"
 }
+
 */ 
 router.post('/register', async (req, res) => {
           // const user = await new User (
@@ -45,8 +51,7 @@ router.post('/register', async (req, res) => {
                     res.status(200).json(user)
 
           }catch(err) {
-                    // console.error(err)
-                     res.status(500).json(err)
+                    res.status(500).json(err)
           } 
 })
 
@@ -57,11 +62,22 @@ http://localhost:8800/api/auth/login
           "email": "hey@gmail.com",
           "password": "123456"
 }
+
+what does d auth sign in entails?
+
 */ 
 router.post("/login", async (req, res) => {
           try{
                     const user = await User.findOne({ email: req.body.email })
                     !user && res.status(404).json("user not found")
+
+                    /*Can't dse: !user && res.status(404).json("user not found")
+                    be written like ds:
+                              if(!user) {
+                                        res.status(404).json("user not found")
+                              }
+
+                    */ 
 
                     // compare password
                     const validPassword = await bcrypt.compare(req.body.password, user.password)
@@ -72,7 +88,7 @@ router.post("/login", async (req, res) => {
 
           } catch(err) {
                     // console.error(err);
-                     res.status(500).json(err)
+                    res.status(500).json(err)
           }
 })
 

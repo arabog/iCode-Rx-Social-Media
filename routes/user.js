@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt")
 /*
 ths done in user route
 cr8 user has already been handled by auth.js
+
 read: get
 delete: del
 update: put (to update text/post, un(follow))
