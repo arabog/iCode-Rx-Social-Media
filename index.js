@@ -1,12 +1,16 @@
 const express = require('express')
 const app = express()
 
-// oda libraries
-const mongoose = require("mongoose")
+// oda libraries/middlewares
 const dotenv = require("dotenv")
 const helmet = require("helmet")
+const mongoose = require("mongoose")
 const morgan = require("morgan")
+// bcrypt is used in auth.js while nodemon is a dev package
+
 const PORT = process.env.PORT || 8800
+
+// import routes
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts")
@@ -42,3 +46,10 @@ app.use("/api/posts", postRoute)
 app.listen(PORT, ()=> {
           console.log(`Backend server is running: ${PORT}`);
 })
+
+/*
+
+
+
+
+*/ 
