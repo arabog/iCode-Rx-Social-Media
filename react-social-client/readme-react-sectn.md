@@ -43,3 +43,6 @@ npm install @material-ui/core
 to use its svg icons, install:
 // with npm
 npm install @material-ui/icons
+
+go here for material icons:
+https://material-ui.com/components/material-icons/
