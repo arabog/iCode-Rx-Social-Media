@@ -46,3 +46,19 @@ npm install @material-ui/icons
 
 go here for material icons:
 https://material-ui.com/components/material-icons/
+
+Install ds snippet:
+ES7 React/Redux/GraphQL/React-Native snippets
+to be able to use short cut like ds
+rfc giving:
+
+import React from 'react'
+
+export default function Feed() {
+          return (
+                    <div>
+                              
+                    </div>
+          )
+}
+

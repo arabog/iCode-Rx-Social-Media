@@ -7,12 +7,12 @@ export default function Topbar() {
                               <div className="topbarContainer">
 
                                         <div className="topbarLeft">
-                                                  <div className="logo">iCode-Rs-Social</div>
+                                                  <div className="logo">iCode-Rx</div>
                                         </div>
 
                                         <div className="topbarCenter">
                                                   <div className="searchbar">
-                                                            <Search />
+                                                            <Search  className="searchIcon" />
 
                                                             <input 
                                                                       type="text" 
@@ -23,7 +23,7 @@ export default function Topbar() {
                                         </div>
 
                                         <div className="topbarRight">
-                                                  <div className="tob">
+                                                  <div className="topbarLinks">
                                                             <span className="topbarLink">Homepage</span>
                                                             <span className="topbarLink">Timeline</span>
                                                   </div>
