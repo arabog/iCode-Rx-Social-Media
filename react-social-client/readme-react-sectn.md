@@ -62,3 +62,5 @@ export default function Feed() {
           )
 }
 
+Search for css box shadow generator
+and generate d shadow of ur choice
