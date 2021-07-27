@@ -1,7 +1,14 @@
 import './post.css'
 import { MoreVert } from "@material-ui/icons"
+import { Users } from "../../dummyData"
 
-export default function Post() {
+
+export default function Post( {post}) {
+
+          const user = Users.filter(e => e.id === 1)
+
+          console.log(user);
+
           return (
                     <div className= "post">
                               <div className="postWrapper">
@@ -9,7 +16,7 @@ export default function Post() {
                                                   <div className="postTopLeft">
                                                             <img src="/assets/person/1.jpeg" alt="" className="postProfileImg" />
                                                             <span className="postUsername">Arabog Babatunde</span>
-                                                            <span className="postDate">5 mins ago</span>
+                                                            <span className="postDate">{post.date}</span>
                                                             
                                                   </div>
 
@@ -19,19 +26,19 @@ export default function Post() {
                                         </div>
 
                                         <div className="postCenter">
-                                                  <span className="postText">Hey! its is my first post :)</span>
-                                                  <img src="/assets/post/1.jpeg" alt="" className="postImg" />
+                                                  <span className="postText">{post?.desc}</span>
+                                                  <img src={post.photo} alt="" className="postImg" />
                                         </div>
 
                                         <div className="postBottom">
                                                   <div className="postBottomLeft">
                                                             <img src="/assets/like.png" alt="" className="likeIcon" />
                                                             <img src="/assets/heart.png" alt="" className="likeIcon" />
-                                                            <span className="postLikeCounter">32 likes</span>
+                                                            <span className="postLikeCounter">{post.like} likes</span>
                                                   </div>
 
                                                   <div className="postBottomRight">
-                                                            <div className="postCommentText">9 comments</div>
+                                                            <div className="postCommentText">{post.comment} comments</div>
                                                   </div>
                                         </div>
                               </div>
