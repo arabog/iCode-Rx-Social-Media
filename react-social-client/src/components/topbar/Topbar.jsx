@@ -2,8 +2,9 @@ import "./topbar.css"
 import { Search, Person, Chat, Notifications } from "@material-ui/icons"
 
 export default function Topbar() {
+          
           return (
-                    <div>
+
                               <div className="topbarContainer">
 
                                         <div className="topbarLeft">
@@ -53,6 +54,5 @@ export default function Topbar() {
 
                               </div>
                               
-                    </div>
           )
 }
