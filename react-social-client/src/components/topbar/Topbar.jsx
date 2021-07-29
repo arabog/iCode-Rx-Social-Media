@@ -8,10 +8,12 @@ export default function Topbar() {
                               // topbarContainer is divided into 3parts: left, center, right
                               <div className="topbarContainer">
 
+                                        {/* left */}
                                         <div className="topbarLeft">
                                                   <div className="logo">iCode-Rx</div>
                                         </div>
 
+                                        {/* center */}
                                         <div className="topbarCenter">
                                                   <div className="searchbar">
                                                             <Search  className="searchIcon" />
@@ -23,6 +25,8 @@ export default function Topbar() {
                                                             />
                                                   </div>
                                         </div>
+
+                                        {/* right: divided into 3 parts: links, icons, img */}
 
                                         <div className="topbarRight">
                                                   <div className="topbarLinks">
