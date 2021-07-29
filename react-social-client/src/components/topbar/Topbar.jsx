@@ -5,6 +5,7 @@ export default function Topbar() {
           
           return (
 
+                              // topbarContainer is divided into 3parts: left, center, right
                               <div className="topbarContainer">
 
                                         <div className="topbarLeft">
