@@ -224,10 +224,39 @@ what does d get (a timeline: post cr8ed only by ds user &
 its followers) method of post route entails?
 
 */ 
-router.get("/timeline/all", async (req, res) => {
+// router.get("/timeline/all", async (req, res) => {
+
+//           try {
+//                     const currentUser = await User.findById(req.body.userId)
+
+//                     // owner of d accout: person being followed
+//                     const userPosts = await Post.find(
+//                               {
+//                                         userId: currentUser._id
+//                               }
+//                     )
+
+//                     // posts of d pple d owner ffl
+//                     const friendPosts = await Promise.all(
+//                               currentUser.followings.map(friendId => {
+//                                         return Post.find(
+//                                                   {
+//                                                             userId: friendId
+//                                                   }
+//                                         )
+//                               })
+//                     )
+
+//                     res.json(userPosts.concat(...friendPosts))
+//           } catch (err) {
+//                     res.status(500).json(err)         
+//           }
+// })
+
+router.get("/timeline/:userId", async (req, res) => {
 
           try {
-                    const currentUser = await User.findById(req.body.userId)
+                    const currentUser = await User.findById(req.params.userId)
 
                     // owner of d accout: person being followed
                     const userPosts = await Post.find(
@@ -247,12 +276,38 @@ router.get("/timeline/all", async (req, res) => {
                               })
                     )
 
-                    res.json(userPosts.concat(...friendPosts))
+                    res.status(200).json(userPosts.concat(...friendPosts))
           } catch (err) {
                     res.status(500).json(err)         
           }
 })
 
+// get profile posts
+router.get('/profile/:username', async(req, res) => {
+          try {
+                    const user = await User.findOne({username: req.params.username})
+                    const posts = await Post.find({userId: user._id})
+                    res.status(200).json(posts)
 
+          } catch (err) {
+                    res.status(500).json(err)
+          }
+})
+
+
+router.get('/deleteEmptyPosts/all', async (req, res) => {
+          try {
+                    const posts = await Post.find({desc: '', img: {$exists: false}})
+                    const deleted = await Promise.all (
+                              posts.map((p) => {
+                                        return p.deleteOne()
+                              })
+                    )
+
+                    res.status(200).json("ok")
+          } catch (err) {
+                    res.status(500).json(err)
+          }
+} )
 
 module.exports = router;

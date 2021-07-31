@@ -64,3 +64,9 @@ export default function Feed() {
 
 Search for css box shadow generator
 and generate d shadow of ur choice
+
+./sidebar.css : wn goint out of d present file
+into anoda file on d same tree or line
+../sidebar.css: wn going out of a folder
+
+<!-- add react-route-dom -->
