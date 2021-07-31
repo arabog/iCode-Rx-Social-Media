@@ -224,34 +224,34 @@ what does d get (a timeline: post cr8ed only by ds user &
 its followers) method of post route entails?
 
 */ 
-// router.get("/timeline/all", async (req, res) => {
+router.get("/timeline/all", async (req, res) => {
 
-//           try {
-//                     const currentUser = await User.findById(req.body.userId)
+          try {
+                    const currentUser = await User.findById(req.body.userId)
 
-//                     // owner of d accout: person being followed
-//                     const userPosts = await Post.find(
-//                               {
-//                                         userId: currentUser._id
-//                               }
-//                     )
+                    // owner of d accout: person being followed
+                    const userPosts = await Post.find(
+                              {
+                                        userId: currentUser._id
+                              }
+                    )
 
-//                     // posts of d pple d owner ffl
-//                     const friendPosts = await Promise.all(
-//                               currentUser.followings.map(friendId => {
-//                                         return Post.find(
-//                                                   {
-//                                                             userId: friendId
-//                                                   }
-//                                         )
-//                               })
-//                     )
+                    // posts of d pple d owner ffl
+                    const friendPosts = await Promise.all(
+                              currentUser.followings.map(friendId => {
+                                        return Post.find(
+                                                  {
+                                                            userId: friendId
+                                                  }
+                                        )
+                              })
+                    )
 
-//                     res.json(userPosts.concat(...friendPosts))
-//           } catch (err) {
-//                     res.status(500).json(err)         
-//           }
-// })
+                    res.json(userPosts.concat(...friendPosts))
+          } catch (err) {
+                    res.status(500).json(err)         
+          }
+})
 
 router.get("/timeline/:userId", async (req, res) => {
 
