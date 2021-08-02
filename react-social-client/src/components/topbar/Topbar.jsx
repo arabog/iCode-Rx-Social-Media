@@ -1,4 +1,5 @@
 import { Search, Person, Chat, Notifications } from "@material-ui/icons"
+import { Link } from "react-router-dom"
 import "./topbar.css"
 
 export default function Topbar() {
@@ -10,7 +11,9 @@ export default function Topbar() {
 
                                         {/* left */}
                                         <div className="topbarLeft">
-                                                  <div className="logo">iCode-Rx</div>
+                                                  <Link to="/" style={{textDecoration: 'none'}}> 
+                                                            <span className="logo">iCode-Rx</span>
+                                                  </Link>
                                         </div>
 
                                         {/* center */}
