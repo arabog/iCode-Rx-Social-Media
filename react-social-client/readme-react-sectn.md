@@ -81,3 +81,12 @@ npm add axios
 
 <!-- add timeago.js -->
 npm add timeago.js
+
+<!-- to draw ur app outline  -->
+https://drawio-app.com/
+
+<!-- checkout context api at -->
+reactjs.org/docs/context.html
+
+<!-- checkout redux at -->
+redux.js.org/introduction/getting-started
