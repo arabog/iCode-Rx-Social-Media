@@ -72,3 +72,12 @@ into anoda file on d same tree or line
 <!-- Going fullstack-->
 <!-- add react-router-dom -->
 npm add react-router-dom
+
+<!-- Add ds to client package.json -->
+"proxy": "http://localhost:8800/api"
+
+<!-- Add axios to client-->
+npm add axios
+
+<!-- add timeago.js -->
+npm add timeago.js
