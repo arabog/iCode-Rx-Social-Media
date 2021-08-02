@@ -69,4 +69,6 @@ and generate d shadow of ur choice
 into anoda file on d same tree or line
 ../sidebar.css: wn going out of a folder
 
-<!-- add react-route-dom -->
+<!-- Going fullstack-->
+<!-- add react-router-dom -->
+npm add react-router-dom
