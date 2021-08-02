@@ -3,9 +3,11 @@ import Topbar from "../../components/topbar/Topbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Feed from "../../components/feed/Feed"
 import Rightbar from "../../components/rightbar/Rightbar"
+import {useState } from "react"
 
 export default function Profile() {
           const PF = process.env.REACT_APP_PUBLIC_FOLDER
+          const [user, ] = useState({})
 
           return (
                     <>

@@ -21,7 +21,10 @@ http://localhost:8800/api/users/id
 e.g: id = 60fda19b8455a0309e48084d
 */ 
 
-router.get('/:id', async (req, res)=> {
+router.get('/', async (req, res)=> {
+
+        const userId = req.query.userId;
+        const username = req.query.username
 
         try {
                 const user = await User.findById(req.params.id)
