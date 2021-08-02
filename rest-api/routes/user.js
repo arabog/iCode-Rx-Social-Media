@@ -27,7 +27,9 @@ router.get('/', async (req, res)=> {
         const username = req.query.username
 
         try {
-                const user = await User.findById(req.params.id)
+                const user = userId 
+                                        ? await User.findById(userId)
+                                        : await User.findOne({username: username})
                 // return res.status(200).json(user)
 
                 // to hide some ppties like password do ds

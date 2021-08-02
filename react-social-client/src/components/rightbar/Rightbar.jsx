@@ -2,7 +2,7 @@ import "./rightbar.css"
 import {Users} from "../../dummyData"
 import Online from "../online/Online"
 
-export default function Rightbar({ profile }) {
+export default function Rightbar({ user }) {
           const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
           const HomeRightbar =() => {
@@ -40,17 +40,25 @@ export default function Rightbar({ profile }) {
                                         <div className="rightbarInfo">
                                                   <div className="rightbarInfoItem">
                                                             <span className="rightbarInfoKey">City: </span>
-                                                            <span className="rightbarInfoValue">Ibadan</span>
+                                                            <span className="rightbarInfoValue">{user.city}</span>
                                                   </div>
 
                                                   <div className="rightbarInfoItem">
                                                             <span className="rightbarInfoKey">From: </span>
-                                                            <span className="rightbarInfoValue">Nigeria</span>
+                                                            <span className="rightbarInfoValue">{user.from}</span>
                                                   </div>
 
                                                   <div className="rightbarInfoItem">
                                                             <span className="rightbarInfoKey">Relationship: </span>
-                                                            <span className="rightbarInfoValue">Married</span>
+                                                            <span className="rightbarInfoValue">
+                                                                      {
+                                                                                user.relationship === 1
+                                                                                ? "Single"
+                                                                                : user.relationship === 2
+                                                                                ? "Married"
+                                                                                : "-"
+                                                                      }
+                                                            </span>
                                                   </div>
                                         </div>
 
@@ -97,7 +105,7 @@ export default function Rightbar({ profile }) {
 
                               <div className="rightbarWrapper">
                                         {
-                                                  profile ? <ProfileRightbar /> : <HomeRightbar />
+                                                  user ? <ProfileRightbar /> : <HomeRightbar />
                                         }
                               </div>
                               
