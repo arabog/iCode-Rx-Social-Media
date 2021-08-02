@@ -1,6 +1,15 @@
+import { useRef } from "react"
 import './login.css'
 
 export default function Login() {
+          const email = useRef()
+          const password = useRef()
+
+
+          const handleClick = (e) => {
+                    e.preventDefault()
+          }
+
           return (
                     <div className="login">
                               <div className="loginWrapper">
@@ -11,15 +20,30 @@ export default function Login() {
                                                   </span>
                                         </div>
 
-                                        <div className="loginRight">
-                                                  <div className="loginBox">
-                                                            <input type="text" placeholder="Email" className="loginInput" />
-                                                            <input type="text" placeholder="Password" className="loginInput" />
+                                        <div className="loginRight" onSubmit={handleClick}>
+                                                  <form className="loginBox">
+                                                            <input 
+                                                                      type="email" 
+                                                                      placeholder="Email" 
+                                                                      className="loginInput" 
+                                                                      ref={email}     
+                                                                      required     
+                                                            />
+
+                                                            <input 
+                                                                      type="password" 
+                                                                      placeholder="Password" 
+                                                                      className="loginInput" 
+                                                                      ref={password}  
+                                                                      minLength= "6"
+                                                                      required             
+                                                            />
+
                                                             <button className="loginButton">Log In</button>
                                                             <span className="loginForgot">Forgot Password?</span>
                                                             <button className="loginRegisterButton">Create a New Account </button>
 
-                                                  </div>
+                                                  </form>
                                         </div>
                               </div>
                     </div>
