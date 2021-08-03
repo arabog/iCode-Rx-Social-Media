@@ -56,4 +56,6 @@ if(req.body.userId === req.params.id || req.user.isAdmin) {}
 use:
 if(req.body.userId === req.params.id || req.body.isAdmin) {}
 
+<!-- UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader -->
 

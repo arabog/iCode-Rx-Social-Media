@@ -34,11 +34,6 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
 
-// routes: moved to route
-// app.get('/', (req, res) => {
-//           res.send("Welcome to homepage")
-// })
-
 app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
 app.use("/api/posts", postRoute)
@@ -47,9 +42,3 @@ app.listen(PORT, ()=> {
           console.log(`Backend server is running: ${PORT}`);
 })
 
-/*
-
-
-
-
-*/ 
