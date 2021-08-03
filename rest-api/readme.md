@@ -58,4 +58,19 @@ if(req.body.userId === req.params.id || req.body.isAdmin) {}
 
 <!-- UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
     at ServerResponse.setHeader -->
+Create new user 
 
+
+https://github.com/safak/youtube/tree/mern-social-app
+
+
+Proxy error: Could not proxy request /posts/timeline/60fda89a9b52a432b3d42104 from localhost:3000 to http://localhost:8800/api/. See https://nodejs.org
+
+Ans add ds to server package.json script section
+
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js --ignore client"
+  },
+
+  dn run: npm run server
