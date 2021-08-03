@@ -1,14 +1,24 @@
-import { useRef } from "react"
-import './login.css'
+import { useContext, useRef } from "react";
+import './login.css';
+import { loginCall  } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext"
 
 export default function Login() {
           const email = useRef()
           const password = useRef()
 
+          const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
           const handleClick = (e) => {
                     e.preventDefault()
+
+                    loginCall( {
+                              email: email.current.value, 
+                              password: password.current.value
+                    }, dispatch )
           }
+
+          console.log(user);
 
           return (
                     <div className="login">
@@ -20,26 +30,26 @@ export default function Login() {
                                                   </span>
                                         </div>
 
-                                        <div className="loginRight" onSubmit={handleClick}>
-                                                  <form className="loginBox">
+                                        <div className="loginRight">
+                                                  <form className="loginBox" onSubmit={handleClick}>
                                                             <input 
                                                                       type="email" 
+                                                                      required
                                                                       placeholder="Email" 
                                                                       className="loginInput" 
-                                                                      ref={email}     
-                                                                      required     
+                                                                      ref = {email}
                                                             />
 
                                                             <input 
                                                                       type="password" 
+                                                                      required
+                                                                      minLength= "6"
                                                                       placeholder="Password" 
                                                                       className="loginInput" 
-                                                                      ref={password}  
-                                                                      minLength= "6"
-                                                                      required             
+                                                                      ref={password}
                                                             />
 
-                                                            <button className="loginButton">Log In</button>
+                                                            <button className="loginButton">Log In </button>
                                                             <span className="loginForgot">Forgot Password?</span>
                                                             <button className="loginRegisterButton">Create a New Account </button>
 
