@@ -2,6 +2,7 @@ import { useContext, useRef } from "react";
 import './login.css';
 import { loginCall  } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext"
+import { CircularProgress } from "@material-ui/core"
 
 export default function Login() {
           const email = useRef()
@@ -12,10 +13,14 @@ export default function Login() {
           const handleClick = (e) => {
                     e.preventDefault()
 
-                    loginCall( {
-                              email: email.current.value, 
-                              password: password.current.value
-                    }, dispatch )
+                    loginCall( 
+                              {
+                                        email: email.current.value, 
+                                        password: password.current.value
+                              }, 
+
+                              dispatch 
+                    )
           }
 
           console.log(user);
@@ -49,9 +54,15 @@ export default function Login() {
                                                                       ref={password}
                                                             />
 
-                                                            <button className="loginButton">Log In </button>
+                                                            <button className="loginButton" type="submit" disabled= {isFetching}>
+                                                                      {isFetching ? <CircularProgress color= "white" size= "22px" /> : "Log In"} 
+                                                            </button>
+
                                                             <span className="loginForgot">Forgot Password?</span>
-                                                            <button className="loginRegisterButton">Create a New Account </button>
+
+                                                            <button className="loginRegisterButton" type="submit">
+                                                                      {isFetching ? <CircularProgress color= "white" size= "22px" /> : "Create a New Account "} 
+                                                            </button>
 
                                                   </form>
                                         </div>
