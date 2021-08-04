@@ -7,6 +7,7 @@ const INITIAL_STATE = {
                     profilePicture: "person/1.jpeg",
                     coverPicture: "",
                     followers: [],
+                    followings: [],
                     isAdmin:false,
                     username:"arabog",
                     email: "arabog@gmail.com"

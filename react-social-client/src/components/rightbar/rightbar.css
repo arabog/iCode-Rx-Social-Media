@@ -83,3 +83,21 @@
           margin-bottom: 20px;
           cursor: pointer;
 }
+
+.rightbarFollowButton {
+          margin: 30px 0 10px 0;
+          border: none;
+          background-color: #1872f2;
+          color: white;
+          border-radius: 5px;
+          padding: 5px 10px;
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+}
+
+.rightbarFollowButton:focus {
+          outline: none;
+}
