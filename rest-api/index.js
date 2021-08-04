@@ -15,6 +15,9 @@ const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts")
 
+// for img
+const multer =require("multer")
+
 
 dotenv.config();
 

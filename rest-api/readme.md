@@ -64,13 +64,26 @@ Create new user
 https://github.com/safak/youtube/tree/mern-social-app
 
 
-Proxy error: Could not proxy request /posts/timeline/60fda89a9b52a432b3d42104 from localhost:3000 to http://localhost:8800/api/. See https://nodejs.org
+<!-- Proxy error: Could not proxy request /posts/timeline/60fda89a9b52a432b3d42104 from localhost:3000 to http://localhost:8800/api/. See https://nodejs.org
 
 Ans add ds to server package.json script section
 
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js --ignore client"
-  },
+  }, -->
 
-  dn run: npm run server
+
+Hi guys. I forgot to add logged-in user to local storage. You can find it in the AuthContext.js in the source code. Just a couple of line codes :)
+
+And also forgot to demonstrate usage of the Action file. In the video, we directly dispatched them using 'type' and 'payload' like:
+
+dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+
+But you can use actions.
+
+dispatch(LoginSuccess(res.data)) 
+
+Add multer and path for images
+npm add multer path
+
