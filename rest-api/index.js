@@ -64,7 +64,7 @@ app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
 app.use("/api/posts", postRoute)
 
-app.listen(PORT, ()=> {
+app.listen(process.env.PORT || PORT, ()=> {
           console.log(`Backend server is running: ${PORT}`);
 })
 
